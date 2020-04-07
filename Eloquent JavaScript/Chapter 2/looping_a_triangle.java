@@ -1,5 +1,5 @@
 
-public class looping_a_triangle {
+public class LoopingAtriangle {
 
 	public static void main(String[] args) {
 		//  David Romanski
