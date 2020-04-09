@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class beanCounter {
 
@@ -18,20 +19,29 @@ public class beanCounter {
 		//  David Romanski
 		//  JavaScript Exercises
 		//  Created: 04/07/2020
+		//  Updated: 04/09/2020
 		//  Eloquent Javascript
 		//  Chapter 3: Bean Counting
 		//  Comments: Write a function that counts the numbers of Bs in a string
 		//       Then write a function that counts the number of any character in a string
+		//  Updated to include inputs and validation
+		
+		Scanner input = new Scanner(System.in);
+		String test;
+		String strKey;
+		char key;
+		
+		System.out.print("Please enter a string to search: ");
+		test = input.next();
+			
+		do {
+			System.out.print("Please enter a key (char) to search for: ");
+			strKey = input.next();
+		} while(strKey.length() != 1);
+		key = strKey.charAt(0);
 
+		System.out.println(countChar(test, key));
 
-		String test1 = "BBbbBB";
-		String test2 = "WWwwWW";
-		char key2 = 'w';
-
-		System.out.print("Testing countBs with " + test1 + ". Count is: ");
-		System.out.println(countBs(test1));
-		System.out.print("Testing countChar with " + test2 + " using " + key2 + ". Count is: ");
-		System.out.println(countChar(test2, key2));
+		input.close();
 	}
-
 }
