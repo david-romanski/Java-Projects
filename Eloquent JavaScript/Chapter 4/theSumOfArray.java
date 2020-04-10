@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class theSumOfArray {
 
@@ -43,51 +44,46 @@ public class theSumOfArray {
 		  return sumArray;
 	}
 
-public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) {
 		//  David Romanski
 		//  JavaScript Exercises
-		//  Updated: 04/08/2020
+		//  Created: 04/08/2020
+		//  Updated: 04/09/2020
 		//  Eloquent Javascript
 		//  Chapter 4: The Sum Of A Range
 		//  Comments: Write a range function that returns an array from beginning to end inclusive. Then write a function that returns the sum of 
 		//  array. As a bonus add a third argument in range that performs as a stepper.
-		//  NOTE: THIS WAS A TOUGH TRANSLATE!!!
-
-		int[] currRange = rangeOfArray(1,10);
-	
-		System.out.print("Range from 1 to 10: ");
-		for (int i=0; i<currRange.length; i++)
-			System.out.print(currRange[i] + " ");
+		//  NOTE: THIS WAS A TOUGH TRANSLATE!!! (Outputting the arrays)
+		//  Updated to include inputs and validation
+		Scanner input = new Scanner(System.in);
+		int startRange, endRange, stepRange;
 		
-		System.out.println();
-
-		int[] currRange2 = rangeOfArray(10,1,-1);
-
-		System.out.print("Range from 10 to 1: ");
-		for (int i=0; i<currRange2.length; i++)
-			System.out.print(currRange2[i] + " ");
+		System.out.print("Please enter value for the start of the range: ");
+		while (!input.hasNextInt()) {
+			System.out.println("I'm sorry, I need an integer.");
+			input.next();			
+			System.out.print("Please enter value for the start of the range: ");
+		} startRange = input.nextInt();
 		
-		System.out.println();
-
-		int[] currRange3 = rangeOfArray(5,2,-1);
+		System.out.print("Please enter value for the end of the range: ");
+		while (!input.hasNextInt()) {
+			System.out.println("I'm sorry, I need an integer.");
+			input.next();			
+			System.out.print("Please enter value for the end of the range: ");
+		} endRange = input.nextInt();
 		
-		System.out.print("Range from 5 to 2 using step -1: ");
-		for (int i=0; i<currRange3.length; i++)
-			System.out.print(currRange3[i] + " ");
+		do {
+			System.out.print("Please enter value for the step: ");
+			while (!input.hasNextInt()) {
+				System.out.println("I'm sorry, I need an integer.");
+				input.next();			
+				System.out.print("Please enter value for the step: ");
+			} stepRange = input.nextInt();			
+		} while(((startRange < endRange) && stepRange < 0) || ((startRange > endRange) && stepRange > 0));
 		
-		System.out.println();
-
-		int[] currRange4 = rangeOfArray(1,10);
+		System.out.print("The sum of the range of the sum is: ");
+		System.out.println(sumOfArray(rangeOfArray(startRange, endRange, stepRange)));
 		
-		System.out.print("Sum from 1 to 10: " + sumOfArray(currRange4));
-
-		System.out.println();
-
-		int[] currRange5 = rangeOfArray(1,100,5);
-		
-		System.out.print("Sum from 1 to 100 using step 5: ");
-		System.out.print(sumOfArray(currRange5));
+		input.close();
 	}
-
 }
