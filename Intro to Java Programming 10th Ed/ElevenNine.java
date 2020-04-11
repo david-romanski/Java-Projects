@@ -9,7 +9,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ElvenNine {
+public class ElevenNine {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
